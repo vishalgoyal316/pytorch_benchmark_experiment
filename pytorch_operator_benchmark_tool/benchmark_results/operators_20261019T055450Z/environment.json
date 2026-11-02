@@ -1,0 +1,75 @@
+{
+  "benchmark": {
+    "backend": "inductor",
+    "compile_mode": "default",
+    "dtypes": [
+      "fp32",
+      "bf16"
+    ],
+    "iterations": 100,
+    "operations": {
+      "layer_norm": {
+        "shapes": [
+          "512,512",
+          "1024,1024",
+          "2048,2048",
+          "4096,4096",
+          "8192,8192"
+        ]
+      },
+      "linear_gelu": {
+        "shapes": [
+          "512,512,512",
+          "1024,1024,1024",
+          "2048,2048,2048",
+          "4096,4096,4096",
+          "6144,6144,6144"
+        ]
+      },
+      "matmul": {
+        "shapes": [
+          "512,512,512",
+          "1024,1024,1024",
+          "2048,2048,2048",
+          "4096,4096,4096",
+          "6144,6144,6144"
+        ]
+      },
+      "pointwise_fusion": {
+        "shapes": [
+          "2048,2048",
+          "4096,4096",
+          "8192,8192"
+        ]
+      },
+      "softmax": {
+        "shapes": [
+          "512,512",
+          "1024,1024",
+          "2048,2048",
+          "4096,4096",
+          "8192,8192"
+        ]
+      }
+    },
+    "trials": 50
+  },
+  "command": [
+    "benchmark.py"
+  ],
+  "cuda_build_version": "12.8",
+  "cuda_device": {
+    "compute_capability": "9.0",
+    "index": 0,
+    "name": "NVIDIA H200 MIG 3g.71gb",
+    "total_memory_bytes": 74893492224
+  },
+  "environment": {},
+  "hostname": "pytorch-team-dev-1-cuda128-re-reboot-preserve",
+  "nvidia_smi": "NVIDIA H200, GPU-de3ecfb1-ba9b-9ed1-49f3-5010912e5f4c, 595.58.03, Enabled",
+  "platform": "Linux-5.14.0-687.el9.x86_64-x86_64-with-glibc2.34",
+  "python": "3.12.15 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:20:25) [GCC 14.3.0]",
+  "pytorch": "2.15.0a0+git3c844ed",
+  "pytorch_git_version": "3c844ed711e65bdb162f11e7dabf177aeca433fc",
+  "timestamp_utc": "2026-10-19T05:54:50.870891+00:00"
+}
